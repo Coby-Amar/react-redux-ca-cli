@@ -1,0 +1,33 @@
+{
+  "name": "r-r-cli",
+  "version": "1.0.0",
+  "description": "react redux cli using typescript",
+  "main": "index.js",
+  "bin": {
+    "r-r-cli": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "inquirer": "^6.2.0",
+    "ts-loader": "^5.2.2",
+    "typescript": "^3.1.3",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "r-r-cli": "r-r-cli",
+    "rr": "r-r-cli",
+    "r&r": "r-r-cli",
+    "r-r": "r-r-cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bladexbraker/r-r-cli.git"
+  },
+  "author": "Blade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bladexbraker/r-r-cli/issues"
+  },
+  "homepage": "https://github.com/bladexbraker/r-r-cli#readme"
+}
