@@ -1,5 +1,6 @@
 "use strict";
-const { cancel, input } = require( '../shared/Strings.shared' );
+const { source, cancel, input } = require( '../shared/Strings.shared' );
+const { CommonFunctions } = require( '../shared/CommonFunctions.shared' );
 
 module.exports = {
     name: 'where', 
@@ -7,5 +8,5 @@ module.exports = {
     type: input, 
     when: ({ start }) => start !== cancel, 
     default: ({ type }) => type ? `./${ source }/${ type }s` : './', 
-    validation: input => /^[\.\/a-zA-z-_]+$/.test( input ) || INVALID_INPUT_MESSAGE( input )
+    validate: input => CommonFunctions.validatePath( input )
 }

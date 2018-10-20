@@ -28,9 +28,9 @@ class ProjectLayout {
             this.generatorLayout.reducer
         ]
     }
-    get create() {
+    create() {
         const { where, name, isRedux, defaultSourceDir, reduxSourceDir, generatorLayout } = this;
-        const home = `./${ where }${ name ? '/' + name : '' }`;
+        const home = `${ where }${ name ? '/' + name : '' }`;
         return {
             path: home,
             files: [{

@@ -18,7 +18,7 @@ class FileSystem {
     }
     static createDir( dir ) {
         if ( this.isPathInvalid( dir )  ) {
-            throw new Error( 'Give wrong or none existent location' );
+            throw new Error( `Give wrong or none existent path( ${ dir } )` );
         }
         const doesExist = fs.existsSync(dir);
         if (doesExist){

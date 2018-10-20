@@ -9,9 +9,9 @@ const { action, actionType, component, container, reducer, route} = GENERATABLE_
 const moduleType = GENERATABLE_TYPES.module;
 
 class GeneratorLayout {
-    constructor( type, where, name ) { 
-        this.type = type; 
+    constructor( where, type, name ) { 
         this.where = where; 
+        this.type = type; 
         this.name = name;
     }
 

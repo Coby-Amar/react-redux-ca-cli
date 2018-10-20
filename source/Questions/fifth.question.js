@@ -1,5 +1,6 @@
 "use strict";
 const { cancel, input } = require( '../shared/Strings.shared' );
+const { CommonFunctions } = require( '../shared/CommonFunctions.shared' );
 
 module.exports = {
     name: 'name', 
@@ -7,10 +8,5 @@ module.exports = {
     type: input, 
     default: ({ type }) => type ? 'Dummy': 'dummy',
     when: ({ start }) => start !== cancel,
-    validation: (input, { type }) => {
-        if ( type ) {
-            return /^[a-zA-Z]+$/.test( input ) || 'Name can only contain letters';
-        }
-        return /^[a-z-_]+$/.test( input ) || 'Name can only contain a-z, - and _'; 
-    }
+    validate: (input, { type }) => CommonFunctions.validateName( input, type )
 }
