@@ -13,8 +13,8 @@ const logger = new Logger();
 exports.command = '$0'; 
 exports.des = 'What Would you like to do?';
 exports.builder = yargs => {}; 
-exports.handler = argv => {
-    if ( argv._.length > 0 ) {
+exports.handler = ({ _ }) => {
+    if ( _.length > 0 ) {
         return;
     }
     prompt( Questions )

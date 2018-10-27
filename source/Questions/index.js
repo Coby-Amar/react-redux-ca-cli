@@ -5,4 +5,5 @@ module.exports = [
     require( './third.question' ),
     require( './fourth.question' ),
     require( './fifth.question' ),
+    require( './sixty.question' ),
 ]

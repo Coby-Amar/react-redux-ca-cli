@@ -1,7 +1,8 @@
 "use strict";
 const { ProjectModule } = require('../modules/Project.module');
+const { create } = require('../options');
 
-exports.command = [ 'create <where> <name> [redux]', 'cre', 'c' ]; 
+exports.command = [ 'create <where> <name> [withRedux] [install]', 'cre', 'c' ]; 
 exports.des = 'create new project <where> and with what <name> and if with redux';
 exports.builder = yargs => {
     yargs.positional('where', {
@@ -11,13 +12,14 @@ exports.builder = yargs => {
     yargs.positional('name', {
         describe: "Project's name",
         type: 'string'
-    })
+    });
+    yargs.options( create );
 }; 
-exports.handler = ({ where, name, withRedux, shouldInstall }) => {
+exports.handler = ({ where, name, withRedux, install }) => {
     if ( !where || !name ) {
-        throw new Error('Error Code: 100. Ask on git Hub!');
+        throw new Error('Error Code: 100. Ask on Git Hub!');
     }
-    const projectModule = new ProjectModule( where, name, withRedux, shouldInstall );
+    const projectModule = new ProjectModule( where, name, withRedux, install );
     const result = projectModule.create();
     return result;
 };
