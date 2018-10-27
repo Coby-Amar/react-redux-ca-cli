@@ -1,10 +1,10 @@
 {
-  "name": "r-r-cli",
+  "name": "react-redux-ca-cli",
   "version": "1.0.0",
   "description": "react redux cli using typescript",
   "main": "index.js",
   "bin": {
-    "r-r-cli": "index.js",
+    "react-redux-ca-cli": "index.js",
     "rr": "index.js",
     "r&r": "index.js",
     "r-r": "index.js"
