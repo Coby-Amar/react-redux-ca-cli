@@ -1,6 +1,3 @@
 'use strict';
-import dummyAction from './Dummy.action';
 
-export default {
-    dummyAction,
-};
+export { dummyAction } from './Dummy.action';
