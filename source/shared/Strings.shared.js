@@ -15,6 +15,7 @@ module.exports = {
     webPack: 'webPack',
     indexHtml: 'indexHtml',
     Index: 'Index',
+    Redux: 'Redux',
     Js: 'Js',
     css: 'css',
     shared: 'shared'

@@ -19,7 +19,7 @@ class ProjectModule {
         textFiles.packageJson = textFiles.packageJson.toString().replace( /dummy/g, name );
         textFiles.componentJs = textFiles.componentJs.toString().replace( /Dummy/g, 'App' );
         if ( withRedux ) {
-            textFiles.containerJs = textFiles.packageJson.toString().replace( /Dummy/g, 'App' );
+            textFiles.containerJs = textFiles.containerJs.toString().replace( /Dummy/g, 'App' );
             textFiles.sourceIndex = textFiles.sourceIndex.toString().replace( 'components', 'containers' );            
         }
         const layout = projectLayout.create();

@@ -11,6 +11,7 @@ module.exports = {
     indexHtml: fs.readFileSync( path.resolve( __dirname, './indexHtml.txt' ) ),
     reducerIndex: fs.readFileSync( path.resolve( __dirname, './reducerIndex.txt' ) ),
     sourceIndex: fs.readFileSync( path.resolve( __dirname, './entry.txt' ) ),
+    sourceIndexRedux: fs.readFileSync( path.resolve( __dirname, './entryRedux.txt' ) ),
     actionTypeIndex: fs.readFileSync( path.resolve( __dirname, './actionTypesIndex.txt' ) ),
     actionIndex: fs.readFileSync( path.resolve( __dirname, './actionsIndex.txt' ) ),
     moduleIndex: fs.readFileSync( path.resolve( __dirname, './modules.txt' ) ),

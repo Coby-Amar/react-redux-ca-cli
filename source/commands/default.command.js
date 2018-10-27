@@ -14,7 +14,9 @@ exports.command = '$0';
 exports.des = 'What Would you like to do?';
 exports.builder = yargs => {}; 
 exports.handler = argv => {
-    console.log('good');
+    if ( argv._.length > 0 ) {
+        return;
+    }
     prompt( Questions )
         .then( answers => {
             const { start } = answers;

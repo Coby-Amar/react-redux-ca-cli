@@ -6,25 +6,31 @@ const {
     options,
     commands
 } = require('./source');
-// const { functions: { log }, strings: {  ERROR } } = require( './src/shared' );
+const { Logger } = require( './source/shared/Logger.shared' );
+const logger = new Logger();
+yargs
+    .options( options.general )
+    .scriptName('r-r-cli')
+    .argv;
 try {
-    yargs
-        .options( options.general )
-        .scriptName('r-r-cli')
-        .argv;
+    //Usage Command
     yargs
         .demandCommand(1, 'You need at least one command before moving on')
-        //Usage Command
         .command( commands.default )
-            .argv;    
-    //     //Create Command
-    //     .command(create)
-    //     .options(createOptions)
-    //     //Generate Command
-    //     .command(generate)
-    //     .exitProcess()
-    //     .argv;    
+        .exitProcess()
+        .argv;
+    //Create Command
+    yargs
+        .command( commands.create )
+        .options( options.create )
+        .exitProcess()
+        .argv;
+    //Generate Command
+    yargs
+        .command( commands.generate )
+        .options( options.generate )
+        .exitProcess()
+        .argv;    
 } catch ({ message }) {
-    console.log('message: ', message);
-    // log( ERROR, message );    
+    logger.log(  Logger.TYPES.ERROR, message );    
 }

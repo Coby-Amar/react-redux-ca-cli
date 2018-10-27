@@ -17,7 +17,7 @@ class GeneratorLayout {
 
     generate() {
         const { type } = this;
-        return GeneratorLayout[ type ] || null;
+        return this[ type ] || null;
     }
         
     get component() {

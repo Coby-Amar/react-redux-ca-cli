@@ -9,6 +9,7 @@ const {
     webPack,
     indexHtml,
     Index,
+    Redux,
     shared
 } = require('../shared/Strings.shared');
 class ProjectLayout {
@@ -16,21 +17,23 @@ class ProjectLayout {
         this.where = where; 
         this.name = name; 
         this.isRedux = isRedux;
-        this.generatorLayout = new GeneratorLayout( where );
+        this.generatorLayout = new GeneratorLayout();
+        const { component, container, actionType, action, reducer } = this.generatorLayout;
         this.defaultSourceDir = [
-            this.generatorLayout.component
+            component
         ];
         this.reduxSourceDir = [
             ...this.defaultSourceDir,
-            this.generatorLayout.container,
-            this.generatorLayout.actionType,
-            this.generatorLayout.action,
-            this.generatorLayout.reducer
+            container,
+            actionType,
+            action,
+            reducer
         ]
     }
     create() {
         const { where, name, isRedux, defaultSourceDir, reduxSourceDir, generatorLayout } = this;
-        const home = `${ where }${ name ? '/' + name : '' }`;
+        const home = `${ where }${  name ?  where.endsWith('/') ? name: '/' + name : '' }`;
+        const { module, route } = generatorLayout;
         return {
             path: home,
             files: [{
@@ -48,9 +51,6 @@ class ProjectLayout {
             }, {
                 type: server,
                 location: '/app.js'
-            }, {
-                type: indexHtml,
-                location: '/index.html'
             }],
             dirs: [{
                 path: '/public',
@@ -58,16 +58,20 @@ class ProjectLayout {
                     path: '/scripts'
                 }, {
                     path: '/styles'
+                }],
+                files: [ {
+                    type: indexHtml,
+                    location: '/index.html'
                 }]
             }, {
                 path: `/${ shared }`
             }, 
-            generatorLayout.module,
-            generatorLayout.route,
+            module,
+            route,
             {
                 path: `/${ source }`,
                 files: [{
-                    type: source + Index,
+                    type: source + Index + ( isRedux ? Redux : '' ),
                     location: '/index.js'
                 }],
                 dirs: isRedux ?  reduxSourceDir : defaultSourceDir

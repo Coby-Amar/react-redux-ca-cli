@@ -8,7 +8,7 @@ module.exports = {
             alias: 'help'
         }
     },
-    createOptions: {
+    create: {
         r: {
             alias: 'redux',
             type: 'boolean'

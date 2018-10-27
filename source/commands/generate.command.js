@@ -2,7 +2,7 @@
 const { GeneratorModule } = require('../modules/Generator.module');
 const { GENERATABLE_TYPES } = require('../shared/Arrays.shared');
 
-exports.command = [ 'generate <type> <where> <name>', 'g', 'gen' ]; 
+exports.command = [ 'generate <type> <where> <name>', 'gen', 'g' ]; 
 exports.des = 'generate new <type> <where> u tell it to with the <name> you give( first letter of name with be changed to upper case ) '; 
 exports.builder = yargs => {
     yargs.positional('type', {
