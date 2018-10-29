@@ -20,6 +20,9 @@ class ProjectLayout {
         this.generatorLayout = new GeneratorLayout();
         const { component, container, actionType, action, reducer } = this.generatorLayout;
         this.defaultSourceDir = [
+            {
+                path: `/${ shared }`
+            },
             component
         ];
         this.reduxSourceDir = [
@@ -63,8 +66,6 @@ class ProjectLayout {
                     type: indexHtml,
                     location: '/index.html'
                 }]
-            }, {
-                path: `/${ shared }`
             }, 
             module,
             route,
